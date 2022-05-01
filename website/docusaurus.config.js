@@ -6,6 +6,8 @@ const lightCodeTheme = require('prism-react-renderer/themes/github');
 // @ts-ignore
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
+const remarkPlugin = require('./remark-plugin')
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'My Site',
@@ -19,16 +21,8 @@ const config = {
   projectName: 'fe-interview', // Usually your repo name.
 
   i18n: {
-    defaultLocale: 'zh-CN',
-    locales: ['zh-CN', 'en'],
-    localeConfigs: {
-      en: {
-        label: 'English',
-      },
-      'zh-CN': {
-        label: '中文',
-      }
-    }
+    defaultLocale: 'zh',
+    locales: ['zh', 'en']
   },
 
   presets: [
@@ -41,7 +35,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl: 'https://github.com/easy-interview/fe-interview/edit/main/website/',
-          // beforeDefaultRemarkPlugins: [remarkPlugin]
+          beforeDefaultRemarkPlugins: [remarkPlugin]
         },
         blog: {
           blogSidebarCount: 0,
