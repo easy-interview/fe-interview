@@ -71,7 +71,7 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'questions',
             position: 'left',
-            label: '面试',
+            label: '面试题',
           },
           {
             type: 'docSidebar',
