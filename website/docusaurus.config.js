@@ -5,10 +5,6 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 // @ts-ignore
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
-// @ts-ignore
-const remarkPlugin = require('./remark-plugin')
-// @ts-ignore
-const plugin = require('./plugin')
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -47,7 +43,12 @@ const config = {
           editUrl: 'https://github.com/easy-interview/fe-interview/edit/main/website/',
           // beforeDefaultRemarkPlugins: [remarkPlugin]
         },
-        blog: false,
+        blog: {
+          blogSidebarCount: 0,
+          editUrl: ({blogDirPath, blogPath}) => {
+            return `https://github.com/easy-interview/fe-interview/edit/main/website/${blogDirPath}/${blogPath}`;
+          },
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -67,54 +68,54 @@ const config = {
         },
         items: [
           {
-            type: 'doc',
-            docId: 'intro',
+            type: 'docSidebar',
+            sidebarId: 'questions',
             position: 'left',
             label: '面试',
           },
           {
-            to: '/records/intro',
-            label: '面试记录',
+            type: 'docSidebar',
             position: 'left',
-            activeBaseRegex: `/records/`,
+            sidebarId: 'records',
+            label: '面试记录',
           },
           {
             position: 'left',
             label: '攻略',
-            to: 'walk-through'
+            to: 'blog/walk-through'
           },
           {
             position: 'left',
             label: '简历',
-            to: 'resume'
+            to: 'blog/resume'
           },
           {
             position: 'left',
             label: '微信群',
-            to: 'community'
+            to: 'blog/community'
           },
           {
             position: 'left',
             label: '内推/工作机会',
-            to: 'job'
+            to: 'blog/job'
           },
           {
             position: 'left',
             label: '贡献',
-            to: 'contribute'
+            to: 'blog/contribute'
           },
           {
             position: 'left',
             label: '捐赠',
-            to: 'donate'
+            to: 'blog/donate'
           },
           {
             position: 'left',
             label: '反馈',
-            to: 'feedback'
+            to: 'blog/feedback'
           },
           {
-            href: 'https://github.com/woopen/fe-interview',
+            href: 'https://github.com/easy-interview/fe-interview',
             label: 'GitHub',
             position: 'right',
           },
@@ -172,16 +173,6 @@ const config = {
     }),
   plugins: [
     require('./plugin'),
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'records',
-        path: 'records',
-        routeBasePath: 'records',
-        editUrl: 'https://github.com/easy-interview/fe-interview/edit/main/website/',
-        sidebarPath: require.resolve('./sidebars.js'),
-      },
-    ],
   ],
 };
 
