@@ -44,7 +44,7 @@ const config = {
           path: 'docs',
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl: 'https://github.com/easy-interview/fe-interview/edit/main/website/',
           // beforeDefaultRemarkPlugins: [remarkPlugin]
         },
         blog: false,
@@ -178,6 +178,7 @@ const config = {
         id: 'records',
         path: 'records',
         routeBasePath: 'records',
+        editUrl: 'https://github.com/easy-interview/fe-interview/edit/main/website/',
         sidebarPath: require.resolve('./sidebars.js'),
       },
     ],
