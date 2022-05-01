@@ -39,9 +39,9 @@
 
 .answer_switch {
   display: inline-block;
-  width: 30px;
+  width: 36px;
   padding: 2px;
-  border-radius: 10px;
+  border-radius: 16px;
   background: rgba(41, 121, 255, .3);
   transition: background-color .3s cubic-bezier(.4, 0, .2, 1);
   cursor: pointer;
@@ -51,12 +51,11 @@
 .answer_switch::after {
   content: '';
   display: block;
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   background: #fff;
   box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,.14), 0px 1px 3px 0px rgba(0,0,0,.12);
-  transform: translateY(-0.5px);
   transition: transform .15s cubic-bezier(.4, 0, .2, 1);
 }
 
@@ -65,5 +64,5 @@
 }
 
 .answer_switch-active::after {
-  transform: translateX(12px) translateY(-0.5px);
+  transform: translateX(14px);
 }
