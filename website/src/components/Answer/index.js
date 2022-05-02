@@ -11,13 +11,16 @@ export default function Answer({ children }) {
   return (
     <div>
       <Admonition type="tip" title={
-        <div className='answer_header'>
+        <div className='answer_header' onClick={toggleShow}>
           <span>答案</span>
-          <div onClick={toggleShow} className={`answer_switch ${show ? 'answer_switch-active' : ''}`}></div>
+          <div className={`answer_switch ${show ? 'answer_switch-active' : ''}`}></div>
         </div>
       }>
         <div className={`answer-content ${show ? 'answer-content-show' : ''}`}>
           {children}
+          <div className='answer-content-fold'>
+            <span onClick={toggleShow}>收起</span>
+          </div>
           <div className='answer-content-mask' onClick={toggleShow}></div>
         </div>
       </Admonition>

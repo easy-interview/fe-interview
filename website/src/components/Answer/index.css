@@ -40,6 +40,17 @@
   pointer-events: none;
 }
 
+.answer-content-fold {
+  margin-top: 20px;
+  text-align: right;
+  user-select: none;
+  color: rgb(41, 121, 255);
+}
+
+.answer-content-fold span {
+  cursor: pointer;
+}
+
 .answer_switch {
   display: inline-block;
   width: 36px;
