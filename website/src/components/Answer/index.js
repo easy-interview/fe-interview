@@ -12,7 +12,7 @@ export default function Answer({ children }) {
     <div>
       <Admonition type="tip" title={
         <div className='answer_header' onClick={toggleShow}>
-          <span>答案</span>
+          <span>解答</span>
           <div className={`answer_switch ${show ? 'answer_switch-active' : ''}`}></div>
         </div>
       }>

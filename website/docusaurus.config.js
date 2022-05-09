@@ -12,12 +12,12 @@ const remarkPlugin = require('./remark-plugin')
 const config = {
   title: 'My Site',
   tagline: 'Dinosaurs are cool',
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://github.com/easy-interview/fe-interview',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'woopen', // Usually your GitHub org/user name.
+  organizationName: 'easy-interview', // Usually your GitHub org/user name.
   projectName: 'fe-interview', // Usually your repo name.
 
   i18n: {
@@ -72,6 +72,11 @@ const config = {
             position: 'left',
             sidebarId: 'records',
             label: '面试记录',
+          },
+          {
+            position: 'left',
+            label: '面试官',
+            to: 'blog/interviewer'
           },
           {
             position: 'left',
