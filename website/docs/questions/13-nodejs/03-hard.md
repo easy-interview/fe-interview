@@ -2,6 +2,12 @@
 title: 困难
 ---
 
+## 请说一说 NodeJS 的模块加载方法，以及如何解决循环依赖的？
+
+<Answer>
+
+</Answer>
+
 ## 请说一说 NodeJS 整体架构
 
 <Answer>
