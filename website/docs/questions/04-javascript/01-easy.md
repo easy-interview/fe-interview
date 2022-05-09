@@ -2,4 +2,139 @@
 title: 简单
 ---
 
+## JS 有哪几种方式可以判断类型，以及各个方法的优缺点是什么？
 
+<Answer>
+
+</Answer>
+
+## 说一说对 JS 原型链的理解？
+
+<Answer>
+
+
+</Answer>
+
+
+## 说一说对 JS 闭包的理解？
+
+<Answer>
+
+</Answer>
+
+## 什么是作用域链？
+
+<Answer>
+
+1. 作用域，即变量（变量作用域又称上下文）和函数生效（能被访问）的区域或集合，换句话说，作用域决定了代码区块中变量和其他资源的可见性。
+
+一般将作用域分成：
+- 全局作用域，任何不在函数中或是大括号中声明的变量，都是在全局作用域下，全局作用域下声明的变量可以在程序的任意位置访问
+- 函数作用域，函数作用域也叫局部作用域，如果一个变量是在函数内部声明的它就在一个函数作用域下面。这些变量只能在函数内部访问，不能在函数以外去访问
+- 块级作用域，ES6 引入了 let 和 const 关键字，和 var 关键字不同，在大括号中使用 let 和 const 声明的变量存在于块级作用域中。在大括号之外不能访问这些变量
+
+2. 词法作用域，词法作用域，又叫静态作用域，变量被创建时就确定好了，而非执行阶段确定的。也就是说我们写好代码时它的作用域就确定了。
+
+3. 作用域链，当在 JS 中使用一个变量的时候，首先 JS 引擎会尝试在当前作用域下去寻找该变量，如果没找到，再到它的上层作用域寻找，以此类推直到找到该变量或是已经到了全局作用域，如果在全局作用域里仍然找不到该变量，它就会在全局范围内隐式声明该变量(非严格模式下)或是直接报错
+
+</Answer>
+
+## 在 new 一个对象实例时，new 在对象操作的过程中具体做了什么？
+
+<Answer>
+
+</Answer>
+
+## 如何确保你的构造函数只能被 new 调用，而不能被普通调用？
+
+<Answer>
+
+可以通过 `this` 是否是当前类实例来判断，代码如下：
+
+```js
+function Person(firstName, lastName) {
+  if (!(this instanceof Person)) {
+    throw new TypeError('Function constructor A cannot be invoked without "new"')
+  }
+}
+```
+
+在 ES6 中新加入 `new.target` 属性，如果是使用 new 关键字来创建实例，该属性为该构造函数，否则为 `undefined`。
+
+```js
+function Person() {
+  if (!(new.target)) {
+    throw new TypeError('Function constructor A cannot be invoked without "new"')
+  }
+}
+```
+
+当然了如果使用 ES6 可以直接使用 class，ES6 中的 class 是可以直接保证只能通过 new 来初始化的。
+
+</Answer>
+
+## JS 中的 undefined 和 ReferenceError: xxx is not defined 有什么区别？
+
+<Answer>
+
+ReferenceError：当尝试引用一个未定义的变量/函数时，就会抛出 ReferenceError。
+undefined：当一个变量声明后，没有被赋值，那么它就是 undefined 类型。
+
+</Answer>
+
+## toPrecision 和 toFixed 和 Math.round 有什么区别？
+
+<Answer>
+
+- `toPrecision` 用于处理精度，精度是从左至右第一个不为 0 的数开始数起。
+- `toFixed` 是对小数点后指定位数取整，从小数点开始数起。
+- `Math.round` 是将一个数字四舍五入到一个整数。
+
+</Answer>
+
+## Promise.all 和 Promise.allSettled 有什么区别？
+
+<Answer>
+
+最大不同是 `Promise.allSettled` 永远不会被 `reject`。
+
+使用 `Promise.allSettled`，只需专注在 `then` 语句里，当有 `promise` 被异常打断时，我们依然能妥善处理那些已经成功了的 `promise`，不必像 `all` 一眼全部重来。
+
+</Answer>
+
+## for...in 和 for...of 有什么区别？
+
+<Answer>
+
+for…of 是 ES6 新增的遍历方式，允许遍历一个含有 iterator 接口的数据结构（数组、对象等）并且返回各项的值，和 ES3 中的 for…in 的区别如下：
+
+- for…of 遍历获取的是对象的键值，for…in 获取的是对象的键名
+- for… in 会遍历对象的整个原型链，性能非常差不推荐使用，而 for … of 只遍历当前对象不会遍历原型链
+- 对于数组的遍历，for…in 会返回数组中所有可枚举的属性(包括原型链上可枚举的属性)，for…of 只返回数组的下标对应的属性值
+
+总结： for...in 循环主要是为了遍历对象而生，不适用于遍历数组；for...of 循环可以用来遍历数组、类数组对象，字符串、Set、Map 以及 Generator 对象。
+
+</Answer>
+
+## Object.is() 与比较操作符 “===”、“==” 的区别？
+
+<Answer>
+
+- 使用双等号（==）进行相等判断时，如果两边的类型不一致，则会进行强制类型转化后再进行比较。
+- 使用三等号（===）进行相等判断时，如果两边的类型不一致时，不会做强制类型准换，直接返回 false。
+- 使用 `Object.i`s 来进行相等判断时，一般情况下和三等号的判断相同，它处理了一些特殊的情况，比如 -0 和 +0 不再相等，两个 NaN 是相等的。
+
+</Answer>
+
+## 谈 Object.defineProperty 与 Proxy 的区别?
+
+<Answer>
+
+使用 Object.defineProperty 会产生三个主要的问题：
+1. 不能监听数组的变化
+2. 必须遍历对象的每个属性
+3. 必须深层遍历嵌套的对象
+
+而上述问题 Proxy 全部解决，它会直接拦截
+
+</Answer>

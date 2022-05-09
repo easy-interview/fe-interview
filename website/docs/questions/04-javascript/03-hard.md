@@ -13,3 +13,15 @@ title: 困难
 <Answer>
 
 </Answer>
+
+## 请实现符合 A+ 规范的 Promise
+
+<Answer>
+
+</Answer>
+
+## CommonJS 和 ES Module 有什么区别？
+
+<Answer>
+
+</Answer>
