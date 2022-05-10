@@ -59,3 +59,59 @@ title: 简单
 6. 多行文字水平垂直居中 `display: table-cell; vertical-align: middle; text-align: center;`, 子盒子设置 `display: inline;`
 
 </Answer>
+
+## 常见的伪元素和伪类选择器以及它们的区别？
+
+<Answer>
+
+1. 常见的伪元素选择器 
+  - :after :before(应该是双冒号，但是书写时可以省略为单冒号) 通常用来清除浮动；以及在页面无内容的标志情况下使用，比如小竖线
+  - ::selection ::first-letter ::first-line(这些都不常用) 
+2. 常见的伪类选择器
+   - :hover :active :visited :focus :nth-child(n) :not() :nth-of-type(n) ... 
+3. 区别 伪元素 名字说明可以理解为它是一个假的元素节点，而伪类选择器是表示选中元素的一种状态
+
+</Answer>
+
+## 常见的css选择器以及它们的优先级？
+
+<Answer>
+
+优先级最高的是 !important 其次是行内样式接下来依次排行
+1. ID选择器 (#my-id)
+2. 类选择器 (.my-class-name)
+3. 标签选择器 (div)
+4. 相邻选择器 (h1 + p)
+5. 子选择器 (ul > li)
+6. 后代选择器 (li a)
+7. 通配符选择器 (*)
+8. 属性选择器 (a[attr="one"])
+9. 伪类选择器 (a:hover) / 伪元素选择器 (a::before)
+这些优先级都可以叠加，在大概两三百个标签选择器会覆盖类选择器，所以基本上我们通常认为有更高优先级的选择器那么他的优先级高，如果最高级选择器数量一样则会比较下一级；如果都相同下面的css样式会比上面的css样式优先级高
+eg：
+```css
+div.box #children 
+div.box .children 
+div.box div 
+div div
+// 以上四个首先比较最高级选择器第一个为 ID 选择器 优先级最高；
+// 第二个第三个最高级选择器为类选择器，在比较数量，第一个有两个类选择器所以优先级第二；
+// 第三个优先级第三；
+// 最后一个最高级选择器为标签选择器，优先级第四
+```
+
+</Answer>
+
+## 实现两栏布局（一端固定另外一端自适应）或者三栏布局（两端固定，中间自适应），尝试多种方法？
+
+<Answer>
+
+
+</Answer>
+
+## flex布局常用的属性？
+
+<Answer>
+
+
+</Answer>
