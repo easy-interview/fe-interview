@@ -25,9 +25,3 @@ title: 中等
 <Answer>
 
 </Answer>
-
-## 谈谈对 requestAnimationFrame 的理解
-
-<Answer>
-
-</Answer>

@@ -2,7 +2,6 @@
 title: 简单
 ---
 
-
 ## JS 中的 undefined 和 ReferenceError: xxx is not defined 有什么区别？
 
 <Answer>
@@ -16,19 +15,38 @@ undefined：当一个变量声明后，没有被赋值，那么它就是 undefin
 
 <Answer>
 
+1. `typeof` 可以对基本类型做出准确的判断，但对于引用类型就不行了，例如 `typeof new String('1')` 和 `typeof null` 都是返回 `object`。
+
+2. `instanceof` 判断对象和构造函数在原型链上是否有关系，如果有关系，返回真，否则返回假。对于基本类型无效，例如 `'1' instanceof String` 返回 `false`。
+
+3. `Object.prototype.toString` 可以准确的判断类型，是最准确的方式。`Object.prototype.toString.call('')` 返回 `[object String]`。
+
 </Answer>
 
 ## 说一说对 JS 原型链的理解？
 
 <Answer>
 
+JS 分为函数对象和普通对象，每个对象都有 `__proto__` 属性，但是只有函数对象才有 `prototype` 属性
+
+构造函数的 `prototype` 属性也称为的原型，通过 `new` 创建实例对象时，该对象的  `__proto__` 属性指向构造函数的 `prototype` 属性，而 `prototype` 也是一个对象，它有 `constructor` 属性指向构造函数，同样它也有 `__proto__` 属性 。
+
+当从实例对象访问一个属性时，如 `obj.a`，首先会从该对象上寻找，如果不存在就在其 `__proto__` 上寻找，也就是构造函数的 `prototype` 对象，如果还没找到就会通过 `__proto__.__proto__` 属性一直向上寻找，直到找到或到达最顶层。
+
+普通对象的 `__proto__` 是指向 `Object.prototype` 的，这也是为什么普通对象会有 `toString` 等方法的，而 `Object.prototype` 的 `__proto__` 是指向 `null` 的。
+
+函数的 `__proto__` 是指向 `Function.prototype` 的， `Function.prototype.__proto__` 是指向 `Object.prototype` 的。
+需要注意的是 `Function.prototype` 是一个函数。这是因为在 ES5 中会将类的 `prototype` 设置为它实例，例如 `Object.prototype` 是一个 Object 对象，`Array.prototype` 是一个数组，`String.prototype` 是一个空字符串。
 
 </Answer>
-
 
 ## 说一说对 JS 闭包的理解？
 
 <Answer>
+
+当函数可以记住并访问所在的词法作用域时，就产生了闭包，即使函数是在当前词法作用域之外执行的。
+
+闭包是指有权访问另一个函数作用域中变量的函数。创建闭包最常见的方式就是，在一个函数内部创建另一个函数。
 
 </Answer>
 
@@ -109,17 +127,19 @@ function Person() {
 
 </Answer>
 
-## for...in、 for...of 和 for await...of 有什么区别？
+## for...in、 for...of 和 for await...of 有什么区别？TODO
 
 <Answer>
 
-for…of 是 ES6 新增的遍历方式，允许遍历一个含有 iterator 接口的数据结构（数组、对象等）并且返回各项的值，和 ES3 中的 for…in 的区别如下：
+`for…of` 是 ES6 新增的遍历方式，允许遍历一个含有 iterator 接口的数据结构（数组、对象等）并且返回各项的值，和 ES3 中的 `for…in` 的区别如下：
 
-- for…of 遍历获取的是对象的键值，for…in 获取的是对象的键名
-- for… in 会遍历对象的整个原型链，性能非常差不推荐使用，而 for … of 只遍历当前对象不会遍历原型链
-- 对于数组的遍历，for…in 会返回数组中所有可枚举的属性(包括原型链上可枚举的属性)，for…of 只返回数组的下标对应的属性值
+- `for…of` 是使用对象的 `Symbol.iterator` 遍历器进行遍历，如果对象没有遍历器则会报错，例如普通对象。
+- `for… in` 会遍历对象的整个原型链，性能非常差不推荐使用，而 `for … of` 只遍历当前对象不会遍历原型链
+- 对于数组的遍历，`for…in` 会返回数组中所有可枚举的属性(包括原型链上可枚举的属性)，`for…of` 只返回数组的下标对应的属性值
 
-for...in 循环主要是为了遍历对象而生，不适用于遍历数组；for...of 循环可以用来遍历数组、类数组对象，字符串、Set、Map 以及 Generator 对象。
+`for...in` 循环主要是为了遍历对象而生，不适用于遍历数组；`for...of` 循环可以用来遍历数组、类数组对象，字符串、Set、Map 以及 Generator 对象。
+
+`for await...of` 用于遍历异步的 Iterator 接口（`Symbol.asyncIterator`），异步遍历器的特点是 `next` 方法返回的是一个 `Promise`。
 
 </Answer>
 

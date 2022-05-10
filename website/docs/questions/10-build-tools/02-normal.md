@@ -14,13 +14,13 @@ title: 中等
 
 </Answer>
 
-## 说说Loader和Plugin的区别？编写Loader，Plugin的思路？
+## 说说 webpack 中 Loader 和 Plugin 的区别？编写 Loader，Plugin 的思路？
 
 <Answer>
 
 </Answer>
 
-## 如何使用 babel 自动导入 polyfills ？
+## 如何利用 babel 自动导入 polyfills ？
 
 <Answer>
 
