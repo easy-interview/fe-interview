@@ -27,3 +27,103 @@ title: 简单
 <Answer>
 
 </Answer>
+
+## 如何提取类型中的字段组合成子类型？
+
+```ts
+interface Todo {
+	title: string;
+	description: string;
+	completed: boolean;
+}
+
+type TodoPreview = MyPick<Todo, "title" | "completed">;
+
+const todo: TodoPreview = {
+	title: "Clean room",
+	completed: false,
+};
+```
+
+<Answer>
+
+```ts
+type MyPick<T, K extends keyof T> = {
+	[P in K]: T[P];
+};
+```
+
+</Answer>
+
+## 如何实现 Readonly？
+
+<Answer>
+
+```ts
+type MyReadonly<T> = {
+	readonly [P in keyof T]: T[P];
+};
+```
+
+</Answer>
+
+## 如何实现内置的 Exclude?
+
+<Answer>
+
+```ts
+type MyExclude<T, U> = T extends U ? never : T;
+```
+
+</Answer>
+
+## 如何提取数组中第一个元素的类型？
+
+<Answer>
+
+```ts
+type First<T extends any[]> = T extends [] ? never : T[0];
+```
+
+</Answer>
+
+## 如何获得数组长度？
+
+<Answer>
+
+```ts
+type Length<T extends any[]> = T["length"];
+```
+
+</Answer>
+
+## 如何在类型数组中实现 `Concat` ?
+
+<Answer>
+
+```ts
+type Concat<T extends unknown[], U extends unknown[]> = [...T, ...U];
+```
+
+</Answer>
+
+## 如何在类型系统中实现 `Array.includes`？
+
+<Answer>
+
+```ts
+type Includes<T extends unknown[], U> = U extends T[number] ? true : false;
+```
+
+</Answer>
+
+## 如何将联合类型转为交叉类型？
+
+<Answer>
+
+```ts
+type UnionToIntersection<U> = 
+  (U extends any ? (k: U) => void : never) extends ((k: infer I) => void) ? I : never
+```
+
+</Answer>

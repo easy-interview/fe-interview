@@ -27,6 +27,12 @@ title: 简单
 
 </Answer>
 
+## event.target 和 event.currentTarget 有什么区别？
+
+<Answer>
+
+</Answer>
+
 ## 微前端是什么？它的优缺点是什么？
 
 <Answer>

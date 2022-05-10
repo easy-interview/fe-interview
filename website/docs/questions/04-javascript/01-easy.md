@@ -127,7 +127,7 @@ function Person() {
 
 </Answer>
 
-## for...in、 for...of 和 for await...of 有什么区别？TODO
+## for...in、 for...of 和 for await...of 有什么区别？
 
 <Answer>
 

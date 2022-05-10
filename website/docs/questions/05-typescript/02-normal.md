@@ -33,8 +33,54 @@ title: 中等
 
 </Answer>
 
-## 说说对 TypeScript 中命名空间与模块的理解？区别？
+## 说说对 TypeScript 中命名空间与模块的理解？以及它们有什么区别？
 
 <Answer>
+
+</Answer>
+
+## TS 类型中 infer 关键字表示什么意思？
+
+<Answer>
+
+</Answer>
+
+## 如何提取 `Promise<unknown>` 中的泛型参数类型？
+
+<Answer>
+
+```ts
+type Awaited<T extends Promise<unknown>> = T extends Promise<infer R>
+	? R
+	: never;
+```
+
+</Answer>
+
+## 请实现内置 Omit
+
+<Answer>
+
+```ts
+type MyOmit<T, U extends keyof T> = {
+	[P in Exclude<keyof T, U>]: T[P];
+};
+```
+
+</Answer>
+
+## 请实现将数组的值转换为联合
+
+```ts
+type Arr = ["1", "2", "3"];
+
+const a: TupleToUnion<Arr>; // expected to be '1' | '2' | '3'
+```
+
+<Answer>
+
+```ts
+type TupleToUnion<T extends any[]> = T[number];
+```
 
 </Answer>

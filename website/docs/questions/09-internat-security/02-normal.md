@@ -13,3 +13,15 @@ title: 中等
 <Answer>
 
 </Answer>
+
+## 什么 XSS 攻击？如何避免该攻击？
+
+<Answer>
+
+</Answer>
+
+## 什么是 CRSF 攻击？如何避免该攻击？
+
+<Answer>
+
+</Answer>
