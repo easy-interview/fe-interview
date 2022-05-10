@@ -116,3 +116,11 @@ capture 属性用于指定文件上传控件中媒体拍摄的方式。
 ```
 
 </Answer>
+
+## HTML5 有哪些语义化标签？
+
+<Answer>
+
+header、footer、article、aside、section、details、summary、dialog
+
+</Answer>
