@@ -37,6 +37,9 @@ title: 困难
 
 <Answer>
 
+
+https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/
+
 </Answer>
 
 ## 微前端一般使用哪几种方式实现 JS 沙箱？每种方式的优缺点是什么？

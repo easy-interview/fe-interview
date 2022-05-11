@@ -34,6 +34,37 @@ title: 中等
 
 </Answer>
 
+## 请实现输出汉诺塔移动顺序的函数
+
+汉诺塔是根据一个传说形成的数学问题：
+
+有三根杆子A，B，C。A杆上有 N 个 (N>1) 穿孔圆盘，盘的尺寸由下到上依次变小。要求按下列规则将所有圆盘移至 C 杆：
+
+每次只能移动一个圆盘；
+大盘不能叠在小盘上面。
+
+用代码怎么表示n个圆盘是怎么移动的呢？
+
+```js
+hanoi(3, '起始柱', '目标柱', '备用柱')
+// 请实现 hanoi 函数，第一个是圆盘数量，后面是 3 个柱子
+// 打印出每一步的动作，如 `从 起始柱 移动到 目标柱`
+```
+
+<Answer>
+
+```py
+def hanoi(n, form, to, spare):
+    if n == 1:
+        print('从 %s 移动到 %s' % (form, to))
+    else:
+        hanoi(n-1, form, spare, to) # 除最底下的大圆盘把其他移动到备用柱
+        hanoi(1, form, to, spare) # 把最底下的大圆盘移动到目标柱
+        hanoi(n-1, spare, to, form) # 再把备用柱上的圆盘移动到目标柱
+```
+
+</Answer>
+
 ## LRU 缓存
 
 请你设计并实现一个满足  LRU (最近最少使用) 缓存 约束的数据结构。
@@ -101,37 +132,6 @@ https://leetcode.cn/problems/trapping-rain-water-ii/
 
 </Answer>
 
-## 请实现输出汉诺塔移动顺序的函数
-
-汉诺塔是根据一个传说形成的数学问题：
-
-有三根杆子A，B，C。A杆上有 N 个 (N>1) 穿孔圆盘，盘的尺寸由下到上依次变小。要求按下列规则将所有圆盘移至 C 杆：
-
-每次只能移动一个圆盘；
-大盘不能叠在小盘上面。
-
-用代码怎么表示n个圆盘是怎么移动的呢？
-
-```js
-hanoi(3, '起始柱', '目标柱', '备用柱')
-// 请实现 hanoi 函数，第一个是圆盘数量，后面是 3 个柱子
-// 打印出每一步的动作，如 `从 起始柱 移动到 目标柱`
-```
-
-<Answer>
-
-```py
-def hanoi(n, form, to, spare):
-    if n == 1:
-        print('从 %s 移动到 %s' % (form, to))
-    else:
-        hanoi(n-1, form, spare, to) # 除最底下的大圆盘把其他移动到备用柱
-        hanoi(1, form, to, spare) # 把最底下的大圆盘移动到目标柱
-        hanoi(n-1, spare, to, form) # 再把备用柱上的圆盘移动到目标柱
-```
-
-</Answer>
-
 ## 数组中的第 K 个最大元素
 
 给定整数数组 nums 和整数 k，请返回数组中第 k 个最大的元素。
@@ -139,6 +139,20 @@ def hanoi(n, form, to, spare):
 请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。
 
 https://leetcode.cn/problems/kth-largest-element-in-an-array/
+
+<Answer>
+
+</Answer>
+
+## 链表中环的入口节点
+
+给定一个链表，返回链表开始入环的第一个节点。 从链表的头节点开始沿着 next 指针进入环的第一个节点为环的入口节点。如果链表无环，则返回 null。
+
+为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 pos 是 -1，则在该链表中没有环。注意，pos 仅仅是用于标识环的情况，并不会作为参数传递到函数中。
+
+说明：不允许修改给定的链表。
+
+https://leetcode.cn/problems/c32eOV/
 
 <Answer>
 
@@ -153,16 +167,6 @@ https://leetcode.cn/problems/kth-largest-element-in-an-array/
 不允许修改 链表。
 
 https://leetcode.cn/problems/linked-list-cycle-ii/
-
-## 链表中环的入口节点
-
-给定一个链表，返回链表开始入环的第一个节点。 从链表的头节点开始沿着 next 指针进入环的第一个节点为环的入口节点。如果链表无环，则返回 null。
-
-为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 pos 是 -1，则在该链表中没有环。注意，pos 仅仅是用于标识环的情况，并不会作为参数传递到函数中。
-
-说明：不允许修改给定的链表。
-
-https://leetcode.cn/problems/c32eOV/
 
 <Answer>
 

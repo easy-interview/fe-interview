@@ -2,15 +2,6 @@
 title: 简单
 ---
 
-## JS 中的 undefined 和 ReferenceError: xxx is not defined 有什么区别？
-
-<Answer>
-
-ReferenceError：当尝试引用一个未定义的变量/函数时，就会抛出 ReferenceError。
-undefined：当一个变量声明后，没有被赋值，那么它就是 undefined 类型。
-
-</Answer>
-
 ## JS 有哪几种方式可以判断类型，以及各个方法的优缺点是什么？
 
 <Answer>

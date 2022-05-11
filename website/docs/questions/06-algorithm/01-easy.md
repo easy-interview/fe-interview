@@ -86,6 +86,18 @@ title: 简单
 
 </Answer>
 
+## 转置矩阵
+
+给你一个二维整数数组 matrix， 返回 matrix 的 转置矩阵 。
+
+矩阵的 转置 是指将矩阵的主对角线翻转，交换矩阵的行索引与列索引。
+
+https://leetcode.cn/problems/transpose-matrix/
+
+<Answer>
+
+</Answer>
+
 ## 爬楼梯
 
 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
@@ -131,18 +143,6 @@ https://leetcode.cn/problems/path-sum/
 叶子节点 是指没有子节点的节点。
 
 https://leetcode.cn/problems/path-sum-ii/
-
-<Answer>
-
-</Answer>
-
-## 转置矩阵
-
-给你一个二维整数数组 matrix， 返回 matrix 的 转置矩阵 。
-
-矩阵的 转置 是指将矩阵的主对角线翻转，交换矩阵的行索引与列索引。
-
-https://leetcode.cn/problems/transpose-matrix/
 
 <Answer>
 
