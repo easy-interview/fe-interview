@@ -25,3 +25,11 @@ title: 中等
 <Answer>
 
 </Answer>
+
+## 为什么 typeof null 结果是 object 不修复这个 BUG？
+
+<Answer>
+
+</Answer>
+
+

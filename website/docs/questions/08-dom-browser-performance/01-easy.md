@@ -33,6 +33,12 @@ title: 简单
 
 </Answer>
 
+## 怎么获取首屏指标？
+
+<Answer>
+
+</Answer>
+
 ## 微前端是什么？它的优缺点是什么？
 
 <Answer>

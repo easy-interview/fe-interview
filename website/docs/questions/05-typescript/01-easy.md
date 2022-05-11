@@ -28,6 +28,12 @@ title: 简单
 
 </Answer>
 
+## TS 中的 type 和 interface 有什么区别
+
+<Answer>
+
+</Answer>
+
 ## 如何提取类型中的字段组合成子类型？
 
 ```ts

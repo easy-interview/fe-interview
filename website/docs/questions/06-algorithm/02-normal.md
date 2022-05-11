@@ -34,9 +34,16 @@ title: 中等
 
 </Answer>
 
-## 请写一个 LRU 缓存函数
+## LRU 缓存
 
-关于缓存，有个常见的例子是，当用户访问不同站点时，浏览器需要缓存在对应站点的一些信息，这样当下次访问同一个站点的时候，就可以使访问速度变快（因为一部分数据可以直接从缓存读取）。 但是想想内存空间是有限的，所以必须有一些规则来管理缓存的使用，而LRU（Least Recently Used） Cache就是其中之一，直接翻译就是“最不经常使用的数据，重要性是最低的，应该优先删除”。
+请你设计并实现一个满足  LRU (最近最少使用) 缓存 约束的数据结构。
+实现 LRUCache 类：
+LRUCache(int capacity) 以 正整数 作为容量 capacity 初始化 LRU 缓存
+int get(int key) 如果关键字 key 存在于缓存中，则返回关键字的值，否则返回 -1 。
+void put(int key, int value) 如果关键字 key 已经存在，则变更其数据值 value ；如果不存在，则向缓存中插入该组 key-value 。如果插入操作导致关键字数量超过 capacity ，则应该 逐出 最久未使用的关键字。
+函数 get 和 put 必须以 O(1) 的平均时间复杂度运行。
+
+https://leetcode.cn/problems/lru-cache/
 
 <Answer>
 
@@ -74,15 +81,21 @@ class LRUCache {
 
 </Answer>
 
-## 请解决接雨滴问题
+## 接雨滴
 
 给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。
 
-```
-输入：height = [0,1,0,2,1,0,1,3,2,1,2,1]
-输出：6
-解释：上面是由数组 [0,1,0,2,1,0,1,3,2,1,2,1] 表示的高度图，在这种情况下，可以接 6 个单位的雨水（蓝色部分表示雨水）。 
-```
+https://leetcode.cn/problems/trapping-rain-water/
+
+<Answer>
+
+</Answer>
+
+## 接雨水 II
+
+给你一个 m x n 的矩阵，其中的值均为非负整数，代表二维高度图每个单元的高度，请计算图中形状最多能接多少体积的雨水。
+
+https://leetcode.cn/problems/trapping-rain-water-ii/
 
 <Answer>
 
@@ -116,5 +129,105 @@ def hanoi(n, form, to, spare):
         hanoi(1, form, to, spare) # 把最底下的大圆盘移动到目标柱
         hanoi(n-1, spare, to, form) # 再把备用柱上的圆盘移动到目标柱
 ```
+
+</Answer>
+
+## 数组中的第 K 个最大元素
+
+给定整数数组 nums 和整数 k，请返回数组中第 k 个最大的元素。
+
+请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。
+
+https://leetcode.cn/problems/kth-largest-element-in-an-array/
+
+<Answer>
+
+</Answer>
+
+## 环形链表 II
+
+给定一个链表的头节点  head ，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。
+
+如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。如果 pos 是 -1，则在该链表中没有环。注意：pos 不作为参数进行传递，仅仅是为了标识链表的实际情况。
+
+不允许修改 链表。
+
+https://leetcode.cn/problems/linked-list-cycle-ii/
+
+## 链表中环的入口节点
+
+给定一个链表，返回链表开始入环的第一个节点。 从链表的头节点开始沿着 next 指针进入环的第一个节点为环的入口节点。如果链表无环，则返回 null。
+
+为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 pos 是 -1，则在该链表中没有环。注意，pos 仅仅是用于标识环的情况，并不会作为参数传递到函数中。
+
+说明：不允许修改给定的链表。
+
+https://leetcode.cn/problems/c32eOV/
+
+<Answer>
+
+</Answer>
+
+## 反转链表 II
+
+给你单链表的头指针 head 和两个整数 left 和 right ，其中 left <= right 。请你反转从位置 left 到位置 right 的链表节点，返回 反转后的链表 。
+
+https://leetcode.cn/problems/reverse-linked-list-ii/
+
+<Answer>
+
+</Answer>
+
+## 螺旋矩阵
+
+给你一个 m 行 n 列的矩阵 matrix ，请按照 顺时针螺旋顺序 ，返回矩阵中的所有元素。
+
+https://leetcode.cn/problems/spiral-matrix/
+
+<Answer>
+
+</Answer>
+
+## 最长连续序列
+
+给定一个未排序的整数数组 nums ，找出数字连续的最长序列（不要求序列元素在原数组中连续）的长度。
+
+请你设计并实现时间复杂度为 O(n) 的算法解决此问题。
+
+https://leetcode.cn/problems/longest-consecutive-sequence/
+
+<Answer>
+
+</Answer>
+
+## 比较版本号
+
+给你两个版本号 version1 和 version2 ，请你比较它们。
+
+版本号由一个或多个修订号组成，各修订号由一个 '.' 连接。每个修订号由 多位数字 组成，可能包含 前导零 。每个版本号至少包含一个字符。修订号从左到右编号，下标从 0 开始，最左边的修订号下标为 0 ，下一个修订号下标为 1 ，以此类推。例如，2.5.33 和 0.1 都是有效的版本号。
+
+比较版本号时，请按从左到右的顺序依次比较它们的修订号。比较修订号时，只需比较 忽略任何前导零后的整数值 。也就是说，修订号 1 和修订号 001 相等 。如果版本号没有指定某个下标处的修订号，则该修订号视为 0 。例如，版本 1.0 小于版本 1.1 ，因为它们下标为 0 的修订号相同，而下标为 1 的修订号分别为 0 和 1 ，0 < 1 。
+
+返回规则如下：
+
+- 如果 version1 > version2 返回 1，
+- 如果 version1 < version2 返回 -1，
+- 除此之外返回 0。
+
+https://leetcode.cn/problems/compare-version-numbers/
+
+<Answer>
+
+</Answer>
+
+## 子集
+
+给你一个整数数组 nums ，数组中的元素 互不相同 。返回该数组所有可能的子集（幂集）。
+
+解集 不能 包含重复的子集。你可以按 任意顺序 返回解集。
+
+https://leetcode.cn/problems/subsets/
+
+<Answer>
 
 </Answer>

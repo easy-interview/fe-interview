@@ -64,3 +64,9 @@ HOC 主要用例：
 如果有 click 事件 Link 会使用 click 事件，否则会禁掉 a 标签的默认事件 `event.preventDefault()`，同时使用 `history.push` 或 `history.replace` 来改变页面。
 
 </Answer>
+
+## 为什么React 的 render 方法 return 如何返回多行 jsx 需要加小括号？
+
+<Answer>
+
+</Answer>
