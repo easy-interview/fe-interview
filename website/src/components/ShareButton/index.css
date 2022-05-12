@@ -1,3 +1,28 @@
 .share_btn {
+  font-weight: normal;
+  padding: 4px 10px;
+  border-radius: 2px;
+  font-size: 12px;
+  opacity: .8;
   cursor: pointer;
+  user-select: none;
+  color: #fff;
+  background: rgb(41, 121, 255);
+  transition: background .2s ease, opacity .2s ease;
+}
+
+.share_btn:hover {
+  background: rgb(24, 85, 189);
+}
+
+.share_btn-success, .share_btn-success:hover {
+  background: rgb(0,180,42);
+}
+
+.share_btn-error, .share_btn-error:hover {
+  background: rgb(245,63,63);
+}
+
+.share_btn:active {
+  opacity: .5;
 }

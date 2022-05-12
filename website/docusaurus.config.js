@@ -12,7 +12,7 @@ const remarkPlugin = require('./remark-plugin')
 const config = {
   title: 'My Site',
   tagline: 'Dinosaurs are cool',
-  url: 'https://github.com/easy-interview/fe-interview',
+  url: 'https://github.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -22,7 +22,7 @@ const config = {
 
   i18n: {
     defaultLocale: 'zh',
-    locales: ['zh', 'en']
+    locales: ['zh']
   },
 
   presets: [
@@ -53,7 +53,11 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      hideableSidebar: true,
+      docs: {
+        sidebar: {
+          hideable: true
+        }
+      },
       navbar: {
         title: 'FE Interview',
         logo: {
@@ -128,7 +132,7 @@ const config = {
             items: [
               {
                 label: 'Tutorial',
-                to: '/docs/intro',
+                to: '/docs/questions/intro',
               },
             ],
           },
@@ -153,12 +157,8 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/easy-interview/fe-interview',
               },
             ],
           },
