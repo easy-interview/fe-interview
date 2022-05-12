@@ -27,26 +27,6 @@ title: 简单
 
 </Answer>
 
-## 什么是 BFC （Block Formatting Contexts）？请简单说下触发条件？
-
-<Answer>
-
-1. BFC 是块级格式化上下文；
-2. 官方解释：决定了元素如何对其内容进行定位，以及与其它元素的关系和相互作用，当涉及到可视化布局时， BFC 提供了一个环境， HTML 在这个环境中按照一定的规则进行布局。
-3. 个人理解：这个是盒子开辟了自己的一个内部空间从而达到子盒子不影响父盒子其他兄弟盒子
-4. 触发条件
-   - 根元素 html
-   - 设置浮动属性值不为 none `float: left/right/inherit`
-   - 设置定位 `position: absolute/fixed`
-   - 设置盒子类型 `display: inline-block, table-cell, table-caption, flex, inline-flex`
-   - 设置溢出属性值不为visible `overflow: hidden/scroll/auto/inherit`
-5. 开发中用来解决
-   - 父盒子 margin 坍塌问题
-   - 子盒子浮动父盒子坍塌问题
-   - 清除浮动（子盒子浮动覆盖到父盒子的兄弟盒子）
-
-</Answer>
-
 ## 在不知道一个盒子的宽度的时候如何让它上下左右居中？
 
 <Answer>
@@ -154,52 +134,6 @@ div div
 
 </Answer>
 
-## 怎么理解回流跟重绘？什么场景下会触发？
-
-<Answer>
-
-1. 回流：布局引擎会根据各种样式计算每个盒子在页面上的大小与位置
-   - 添加或删除可见的DOM元素
-   - 元素的位置发生变化
-   - 元素的尺寸发生变化（包括外边距、内边框、边框大小、高度和宽度等）
-   - 内容发生变化，比如文本变化或图片被另一个不同尺寸的图片所替代
-   - 页面一开始渲染的时候（这避免不了）
-   - 浏览器的窗口尺寸变化（因为回流是根据视口的大小来计算元素的位置和大小的） 
-2. 重绘：当计算好盒模型的位置、大小及其他属性后，浏览器根据每个盒子特性进行绘制
-   - 颜色的修改
-   - 文本方向的修改
-   - 阴影的修改
-
-3. 回流和重绘都会影响性能，所以我们要尽量避免或者减少回流和重绘次数，如何提高性能
-   - 如果想设定元素的样式，通过改变元素的 class 类名 (尽可能在 DOM 树的最里层)
-   - 避免设置多项内联样式
-   - 应用元素的动画，使用 position 属性的 fixed 值或 absolute 值
-   - 避免使用 table 布局，table 中每个元素的大小以及内容的改动，都会导致整个 table 的重新计算
-   - 对于那些复杂的动画，对其设置 position: fixed/absolute，尽可能地使元素脱离文档流，从而减少对其他元素的影响
-   - 使用css3硬件加速，可以让transform、opacity、filters这些动画不会引起回流重绘
-
-</Answer>
-
-## 你知道requestAnimationFrame函数嘛，日常开发中有什么作用？
-
-<Answer>
-
-1. 你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行
-2. 可以用来减少重绘和替代定时器以及保证动画的流畅性
-
-</Answer>
-
-## vue 中的`<style scope>`什么意思，怎么实现的？
-
-<Answer>
-
-1. 组件内的样式只在当前 vue 组件生效,实现组件的私有化，不对全局造成样式污染，表示当前 style 属性只属于当前模块;
-   - 简单地说就是 该样式只作用于该组件
-2. vue中的scoped属性的效果主要通过 PostCSS 转译实现，PostCSS 给一个组件中的所有 dom 添加了一个独一无二的动态属性，然后，给 CSS 选择器额外添加一个对应的属性选择器来选择该组件中 dom，这种做法使得样式只作用于含有该属性的 dom ——组件内部 dom
-   - 简单说就是 对应的 dom 加了一个属性，data-v 加上生成的码，样式就可以通过属性选择对应的 dom 进行样式添加
-
-</Answer>
-
 ## CSS 中 h5 的1像素问题是什么？有哪些解决方案？
 
 <Answer>
@@ -208,33 +142,55 @@ div div
 
 </Answer>
 
-## em/px/rem/vh/vw 这些单位有什么区别？
+## 如何用纯CSS创建一个三角形？
 
 <Answer>
 
-1. 以上除了px都是相对单位，实际上px也是相对单位，但是我们通常认为他是绝对单位
-2. rem是相对根节点 html 的 `font-size: 14px;`; 此时1em 等于 14px
-3. em 相对父节点的 `font-size`
-4. vh/vw 相对屏幕高度和宽度 1vh/1vw = 1%
+1. 将宽高设置为0 ，三个 border 设置透明，一个 border 设置颜色
+```css
+  width: 0;
+  height: 0;
+  border-top: 40px solid transparent;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 40px solid #ff0000;
+```
 
 </Answer>
 
-## 移动端适配方案？
+## 为什么要初始化CSS样式？
 
 <Answer>
 
-1. rem 适配
-2. vw 适配
-3. 主流 rem + vw适配
-```html
-// 禁止用户缩放
-<meta name="viewport" content="width=device-width, initial-scale=2.0, maximum-scale=2.0, minimum-scale=2.0, user-scalable=no">
-html {
-  // 100 / 750 = 0.133333333333333vw 我们把这个适口当做100px
-  // 然后除于750换算得出 1px = 0.133333333333333vw 那么整个适口等于 
-  // 0.133333333333333 * 100 = 13.3333333333333vw = 100px
-    font-size: 13.3333333333333vw // 100px
-}
-```
+1. 因为浏览器的兼容问题，不同浏览器对有些标签的默认值是不同的，如果没对CSS初始化往往会出现浏览器之间的页面显示差异
+
+</Answer>
+
+## `display:none;`、`opacity: 0;`与`visibility：hidden;`的区别？
+
+<Answer>
+
+1. `display：none;` 不显示对应的元素，在文档布局中不再分配空间（回流+重绘）
+2. `visibility：hidden;` 隐藏对应元素，在文档布局中仍保留原来的空间（重绘）
+3. `opacity: 0;` 不会让元素从渲染树消失，渲染元素继续占据空间，只是内容不可见，可以点击
+
+</Answer>
+
+## 相邻元素节点之间有看不见的空白间隔是什么原因引起的？有什么解决办法？
+
+<Answer>
+
+1. 引起原因主要是代码中间空格会算字体大小原因
+2. 解决办法
+   - 把字符大小设为0
+   - margin 设置负数
+   - 设置`float: left`
+   - 相邻元素代码代码全部写在一排
+  ```html
+    <span></span>
+    <span></span>
+    // 改进
+    <span></span><span></span>
+  ```
 
 </Answer>
