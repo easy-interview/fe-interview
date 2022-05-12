@@ -134,14 +134,6 @@ div div
 
 </Answer>
 
-## CSS 中 h5 的1像素问题是什么？有哪些解决方案？
-
-<Answer>
-
-1. 使用 transform 解决 `transform: translate(-50%, -50%) scale(0.5, 0.5);`
-
-</Answer>
-
 ## 如何用纯CSS创建一个三角形？
 
 <Answer>
@@ -194,3 +186,112 @@ div div
   ```
 
 </Answer>
+
+## display:none 与 visibility:hidden 的区别
+
+<Answer>
+
+这两个属性都是让元素隐藏，不可见。两者区别如下：
+
+1. 在渲染树中
+   - `display:none` 会让元素完全从渲染树中消失，渲染时不会占据任何空间；
+   - `visibility:hidden` 不会让元素从渲染树中消失，渲染的元素还会占据相应的空间，只是内容不可见。
+2. 是否是继承属性
+   - `display:none` 是非继承属性，子孙节点会随着父节点从渲染树消失，通过修改子孙节点的属性也无法显示；
+   - `visibility:hidden` 是继承属性，子孙节点消失是由于继承了hidden，通过设置visibility:visible可以让子孙节点显示；
+3. 修改常规文档流中元素的 display 通常会造成文档的重排，但是修改visibility属性只会造成本元素的重绘；
+4. 如果使用读屏器，设置为display:none的内容不会被读取，设置为visibility:hidden的内容会被读取。
+
+</Answer>
+
+## 伪元素和伪类的区别和作用？
+
+<Answer>
+
+伪元素：在内容元素的前后插入额外的元素或样式，但是这些元素实际上并不在文档中生成。它们只在外部显示可见，但不会在文档的源代码中找到它们，因此，称为“伪”元素。例如：
+
+```css
+p::before {content:"第一章：";}
+p::after {content:"Hot!";}
+p::first-line {background:red;}
+p::first-letter {font-size:30px;}
+```
+
+伪类：将特殊的效果添加到特定选择器上。它是已有元素上添加类别的，不会产生新的元素。例如：
+
+```css
+a:hover {color: #FF00FF}
+p:first-child {color: red}
+```
+
+总结： 伪类是通过在元素选择器上加⼊伪类改变元素状态，⽽伪元素通过对元素的操作进⾏对元素的改变。
+
+</Answer>
+
+## CSS 中可继承与不可继承属性有哪些？
+
+<Answer>
+
+一、无继承性的属性
+
+display：规定元素应该生成的框的类型
+文本属性：
+
+
+vertical-align：垂直文本对齐
+text-decoration：规定添加到文本的装饰
+text-shadow：文本阴影效果
+white-space：空白符的处理
+unicode-bidi：设置文本的方向
+
+
+盒子模型的属性：width、height、margin、border、padding
+背景属性：background、background-color、background-image、background-repeat、background-position、background-attachment
+定位属性：float、clear、position、top、right、bottom、left、min-width、min-height、max-width、max-height、overflow、clip、z-index
+生成内容属性：content、counter-reset、counter-increment
+轮廓样式属性：outline-style、outline-width、outline-color、outline
+页面样式属性：size、page-break-before、page-break-after
+声音样式属性：pause-before、pause-after、pause、cue-before、cue-after、cue、play-during
+
+二、有继承性的属性
+
+字体系列属性
+
+
+font-family：字体系列
+font-weight：字体的粗细
+font-size：字体的大小
+font-style：字体的风格
+
+
+文本系列属性
+
+
+text-indent：文本缩进
+text-align：文本水平对齐
+line-height：行高
+word-spacing：单词之间的间距
+letter-spacing：中文或者字母之间的间距
+text-transform：控制文本大小写（就是uppercase、lowercase、capitalize这三个）
+color：文本颜色
+
+
+元素可见性
+
+
+visibility：控制元素显示隐藏
+
+
+列表布局属性
+
+
+list-style：列表风格，包括list-style-type、list-style-image等
+
+
+光标属性
+
+
+cursor：光标显示为何种形态
+
+</Answer>
+
