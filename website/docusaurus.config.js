@@ -89,23 +89,18 @@ const config = {
           },
           {
             position: 'left',
-            label: '攻略',
-            to: 'blog/walk-through'
-          },
-          {
-            position: 'left',
             label: '简历',
             to: 'blog/resume'
           },
           {
             position: 'left',
-            label: '微信群',
-            to: 'blog/community'
+            label: '内推/工作机会',
+            to: 'blog/job'
           },
           {
             position: 'left',
-            label: '内推/工作机会',
-            to: 'blog/job'
+            label: '微信群',
+            to: 'blog/community'
           },
           {
             position: 'left',
@@ -133,42 +128,52 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: '文章',
             items: [
               {
-                label: 'Tutorial',
+                label: '面试题',
                 to: '/docs/questions/intro',
               },
+              {
+                label: '面试记录',
+                to: '/docs/records/intro',
+              },
             ],
           },
           {
-            title: 'Community',
+            title: '社区',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: '微信群',
+                to: '/blog/community',
               },
               {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                label: '微信公众号',
+                to: '/blog/community',
               },
             ],
           },
           {
-            title: 'More',
+            title: '更多',
             items: [
               {
                 label: 'GitHub',
                 href: 'https://github.com/easy-interview/fe-interview',
               },
+              {
+                label: 'GitHub Issues',
+                href: 'https://github.com/easy-interview/fe-interview/issues',
+              },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Fe Interview.`,
+        logo: {
+          alt: 'FE Interview Logo',
+          src: '/img/logo.svg',
+          width: 100,
+          href: 'https://github.com/easy-interview/fe-interview',
+        },
+        copyright: `Copyright © ${new Date().getFullYear()} <a target="_blank" rel="noopener noreferrer" href="https://github.com/easy-interview/fe-interview">FE Interview</a>.`,
       },
       prism: {
         theme: lightCodeTheme,
