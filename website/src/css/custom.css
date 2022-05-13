@@ -37,3 +37,18 @@
 [data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
+
+.footer {
+  --ifm-footer-background-color:var(--ifm-color-emphasis-900);
+  --ifm-footer-link-color: var(--ifm-color-emphasis-700);
+}
+
+.footer--dark {
+  --ifm-footer-title-color: var(--ifm-color-primary-darkest);
+  --ifm-footer-background-color:var(--ifm-color-emphasis-100);
+  --ifm-footer-color: inherit;
+}
+
+.clean-btn.close svg {
+  color: rgb(51, 153, 255);
+}

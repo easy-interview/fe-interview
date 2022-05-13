@@ -10,8 +10,8 @@ const remarkPlugin = require('./remark-plugin')
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'FE Interview',
+  tagline: '✨ 全网最新最全面的前端面试平台 ✨',
   url: 'https://github.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -57,6 +57,11 @@ const config = {
         sidebar: {
           hideable: true
         }
+      },
+      announcementBar: {
+        content: '如果觉得还不错，请在 <a target="_blank" rel="noopener noreferrer" href="https://github.com/easy-interview/fe-interview">GitHub 上给我们一个 Star ⭐️</a> 并 <a href="/blog/community">加入微信群</a>',
+        backgroundColor: 'rgb(10, 25, 41)',
+        textColor: 'rgb(160, 170, 180)'
       },
       navbar: {
         title: 'FE Interview',

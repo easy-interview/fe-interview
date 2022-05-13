@@ -7,18 +7,34 @@ import styles from './index.module.css';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
 function HomepageHeader() {
+
   const {siteConfig} = useDocusaurusContext();
+  const Svg = require('../../static/img/logo.svg').default;
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
+    <header className={clsx('hero shadow--lw', styles.heroBanner)}>
       <div className="container">
-        <h1 className="hero__title">{siteConfig.title}</h1>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/questions/intro">
-            Docusaurus Tutorial - 5min ⏱️
+        <Svg height="15em" width="15em" alt="Logo" />
+        <h1 className="hero__title">
+          {siteConfig.title}
+        </h1>
+        <p className="hero__subtitle">
+          {siteConfig.tagline}
+        </p>
+        <div className={styles.indexCtas}>
+          <Link 
+              className="button button--secondary button--lg"
+              to="/docs/questions/intro">
+                  现在开始
           </Link>
+          <Link 
+                className="button button--warning button--lg"
+                to="/blog/community">
+                      加入组织
+                </Link>
+          <a target="_blank" rel="noopener noreferrer" href="https://github.com/easy-interview/fe-interview"
+            className="button button--info button--lg">
+                GitHub
+          </a>
         </div>
       </div>
     </header>
