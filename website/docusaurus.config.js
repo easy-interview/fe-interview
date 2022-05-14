@@ -53,6 +53,9 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      colorMode: {
+        defaultMode: 'dark'
+      },
       docs: {
         sidebar: {
           hideable: true
@@ -128,7 +131,7 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: '文章',
+            title: '文档',
             items: [
               {
                 label: '面试题',
@@ -161,8 +164,11 @@ const config = {
                 href: 'https://github.com/easy-interview/fe-interview',
               },
               {
-                label: 'GitHub Issues',
-                href: 'https://github.com/easy-interview/fe-interview/issues',
+                label: '问题反馈',
+                to: '/blog/feedback'
+              },
+              {
+                html: '<iframe style="margin-top: 10px" src="https://ghbtns.com/github-btn.html?user=easy-interview&repo=fe-interview&type=star&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe>',
               },
             ],
           },
