@@ -6,7 +6,7 @@ title: 简单
 
 <Answer>
 
-`declare` 是用来定义全局变量、全局函数、全局命名空间、js modules、class 等
+通过 declare 关键字可以来告诉 TypeScript，正在试图表述一个其他地方已经存在的代码，`declare` 一般用来定义全局变量、全局函数、全局命名空间、js modules、class 等
 
 </Answer>
 
@@ -22,15 +22,25 @@ title: 简单
 
 </Answer>
 
-## Typescript中的泛型？作用是什么？
+## TS 中的 type 和 interface 有什么区别？
 
 <Answer>
 
-</Answer>
+`type` 和 `interface` 有很多的共同点，在功能上非常相似，它们更多的是语义的差别。`type` 是类型别名，`interface` 定义接口由 `class` 去实现这个接口。
 
-## TS 中的 type 和 interface 有什么区别
+它们之间主要有两点不同，`type` 可以作为其他类型的别名，如 `string`。`interface` 能够声明合并。
 
-<Answer>
+```ts
+type T = string;
+
+interface A {
+	a: string;
+}
+interface A {
+	b: string;
+}
+// interface A 会合并
+```
 
 </Answer>
 
